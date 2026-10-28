@@ -1,0 +1,7 @@
+.env
+data/
+*.db
+*.db-shm
+*.db-wal
+usdt-payout
+usdt-payout.exe

@@ -1,0 +1,14 @@
+services:
+  usdt-payout:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8088:8088"
+    volumes:
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8088/healthz"]
+      interval: 15s
+      timeout: 3s
+      retries: 3
